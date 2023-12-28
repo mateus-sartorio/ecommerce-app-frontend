@@ -70,7 +70,7 @@ class _HomePageState extends State<HomePage> {
                   ),
                 ],
               ),
-              Padding(
+              const Padding(
                 padding: EdgeInsets.all(8.0),
                 child: ListTile(
                     leading: Icon(Icons.logout), title: Text("Logout")),

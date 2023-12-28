@@ -23,7 +23,7 @@ class _CartItemTileState extends State<CartItemTile> {
       title: Text(widget.shoe.name),
       subtitle: Text(widget.shoe.description),
       trailing: IconButton(
-        icon: Icon(Icons.delete),
+        icon: const Icon(Icons.delete),
         onPressed: () => removeItemFromCart(),
       ),
     );

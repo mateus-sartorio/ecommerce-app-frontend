@@ -21,7 +21,7 @@ class _MainState extends State<MyApp> {
       create: (context) => Cart(),
       builder: (context, child) => MaterialApp(
         debugShowCheckedModeBanner: false,
-        home: IntroPage(),
+        home: const IntroPage(),
         theme: ThemeData.light(),
         darkTheme: ThemeData.dark(),
       ),

@@ -3,15 +3,15 @@ import 'package:flutter/material.dart';
 
 class ShoeTile extends StatelessWidget {
   final Shoe shoe;
-  void Function()? onTap;
+  final void Function()? onTap;
 
-  ShoeTile({Key? key, required this.shoe, required this.onTap})
+  const ShoeTile({Key? key, required this.shoe, required this.onTap})
       : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.only(left: 25),
+      margin: const EdgeInsets.only(left: 25),
       width: 280,
       decoration: BoxDecoration(
           color: Colors.grey, borderRadius: BorderRadius.circular(12)),
@@ -38,7 +38,7 @@ class ShoeTile extends StatelessWidget {
                         color: Theme.of(context).cardColor),
                   ),
 
-                  SizedBox(height: 10),
+                  const SizedBox(height: 10),
 
                   // price
                   Text(
@@ -52,13 +52,13 @@ class ShoeTile extends StatelessWidget {
               GestureDetector(
                 onTap: () => onTap!(),
                 child: Container(
-                    padding: EdgeInsets.all(10),
+                    padding: const EdgeInsets.all(10),
                     decoration: BoxDecoration(
                         color: Theme.of(context).primaryColor,
-                        borderRadius: BorderRadius.only(
+                        borderRadius: const BorderRadius.only(
                           topLeft: Radius.circular(10),
                         )),
-                    child: Icon(
+                    child: const Icon(
                       Icons.add,
                     )),
               )
