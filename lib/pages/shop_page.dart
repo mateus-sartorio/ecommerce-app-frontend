@@ -39,7 +39,7 @@ class _ShopPageState extends State<ShopPage> {
             padding: const EdgeInsets.all(12),
             margin: const EdgeInsets.symmetric(horizontal: 25),
             decoration: BoxDecoration(
-                color: Theme.of(context).primaryColorLight,
+                color: Colors.grey[300],
                 borderRadius: BorderRadius.circular(8)),
             child: const Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -63,7 +63,7 @@ class _ShopPageState extends State<ShopPage> {
               crossAxisAlignment: CrossAxisAlignment.end,
               children: [
                 Text(
-                  "Hot pics",
+                  "Hot pics 🔥",
                   style: TextStyle(fontWeight: FontWeight.bold, fontSize: 24),
                 ),
                 Text(

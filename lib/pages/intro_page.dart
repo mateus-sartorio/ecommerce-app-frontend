@@ -30,22 +30,35 @@ class IntroPage extends StatelessWidget {
             const SizedBox(height: 24),
 
             // sub title
-            const Text(
-              "Brand new sneakers and custom kicks made with",
-              style: TextStyle(fontSize: 16),
+            Text(
+              "Brand new sneakers and custom kicks made with premium quality",
+              style: TextStyle(fontSize: 16, color: Colors.grey[600]),
               textAlign: TextAlign.center,
             ),
 
             const SizedBox(height: 48),
 
             //start now button
-            ElevatedButton(
-                onPressed: () => Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => const HomePage())),
-                child: const Text(
-                  "Show now",
-                  style: TextStyle(fontWeight: FontWeight.bold),
-                ))
+            SizedBox(
+              width: double.infinity,
+              child: ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                      padding: EdgeInsets.all(20),
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(10)),
+                      backgroundColor: Colors.black),
+                  onPressed: () => Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const HomePage())),
+                  child: Text(
+                    "Show now",
+                    style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 16,
+                        color: Colors.white),
+                  )),
+            )
           ]),
         ),
       ),

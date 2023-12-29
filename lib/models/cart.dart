@@ -8,37 +8,44 @@ class Cart extends ChangeNotifier {
         name: "Black Shoe",
         price: "25",
         imagePath: "assets/images/black-shoe.png",
-        description: "Black Shoe"),
+        description:
+            "Elevate your style with our classic black shoe. Timelessly chic, comfortable, and versatile – the perfect choice for any occasion."),
     Shoe(
         name: "Blue Shoe",
         price: "25",
         imagePath: "assets/images/blue-shoe.png",
-        description: "Blue Shoe"),
+        description:
+            "Add a pop of color to your step with our vibrant blue shoe. Stylish, comfortable, and perfect for any occasion."),
     Shoe(
         name: "Nike Shoe",
         price: "25",
         imagePath: "assets/images/nike-shoe.png",
-        description: "Nike Shoe"),
+        description:
+            "Step into superior performance with our Nike shoe. Stylish design meets unbeatable comfort, making it your go-to choice for any activity. Just do it."),
     Shoe(
         name: "Red Shoe",
         price: "25",
         imagePath: "assets/images/red-shoe.png",
-        description: "Red Shoe"),
+        description:
+            "Make a bold statement with our red shoe. Stylish, comfortable, and ready for any occasion. Stand out with every step."),
     Shoe(
         name: "Running Shoe",
         price: "25",
         imagePath: "assets/images/running-shoe.png",
-        description: "Running Shoe"),
+        description:
+            "Gear up for your run with our dynamic running shoe. Lightweight, comfortable, and built for speed. Lace up and conquer your miles."),
     Shoe(
         name: "Social Shoe",
         price: "25",
         imagePath: "assets/images/social-shoe.png",
-        description: "Social Shoe"),
+        description:
+            "Step out with attitude in our sleek social shoe. Small in size, big in style—perfect for making a statement wherever you go."),
     Shoe(
         name: "White Shoe",
         price: "25",
         imagePath: "assets/images/white-shoe.png",
-        description: "White Shoe"),
+        description:
+            "Step into crisp elegance with our white shoe. Clean, versatile, and effortlessly stylish, it's the perfect choice for a timeless look. From casual outings to special occasions, this white shoe complements any wardrobe with a touch of sophistication."),
   ];
 
   // list of items in user cart
