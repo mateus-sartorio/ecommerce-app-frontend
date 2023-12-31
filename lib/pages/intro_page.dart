@@ -1,3 +1,4 @@
+import 'package:ecommerce_app/components/big_button_tile.dart';
 import 'package:ecommerce_app/pages/home_page.dart';
 import 'package:flutter/material.dart';
 
@@ -40,25 +41,14 @@ class IntroPage extends StatelessWidget {
 
             //start now button
             SizedBox(
-              width: double.infinity,
-              child: ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                      padding: EdgeInsets.all(20),
-                      shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(10)),
-                      backgroundColor: Colors.black),
+                width: double.infinity,
+                child: BigButtonTile(
+                  text: "Show now",
                   onPressed: () => Navigator.push(
                       context,
                       MaterialPageRoute(
                           builder: (context) => const HomePage())),
-                  child: Text(
-                    "Show now",
-                    style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        fontSize: 16,
-                        color: Colors.white),
-                  )),
-            )
+                ))
           ]),
         ),
       ),

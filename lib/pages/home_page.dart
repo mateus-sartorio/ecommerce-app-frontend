@@ -37,7 +37,7 @@ class _HomePageState extends State<HomePage> {
           centerTitle: true,
           title: const Text(
             "Shoes and stuff",
-            style: TextStyle(fontSize: 19),
+            style: TextStyle(fontSize: 19, fontWeight: FontWeight.bold),
           ),
           backgroundColor: Colors.transparent,
           elevation: 0,

@@ -17,9 +17,15 @@ class ShoeTile extends StatelessWidget {
           color: Colors.grey[200], borderRadius: BorderRadius.circular(12)),
       child:
           Column(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
-        ClipRRect(
+        Container(
+          width: double.infinity,
+          margin: const EdgeInsets.symmetric(horizontal: 20),
+          decoration: const BoxDecoration(),
+          child: ClipRRect(
             borderRadius: BorderRadius.circular(12),
-            child: Image.asset(shoe.imagePath)),
+            child: Image.asset(shoe.imagePath),
+          ),
+        ),
         Container(
           margin: const EdgeInsets.symmetric(horizontal: 30),
           child: Text(

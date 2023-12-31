@@ -17,16 +17,26 @@ class _ShopPageState extends State<ShopPage> {
   void addShoeToCart(Shoe shoe) {
     Provider.of<Cart>(context, listen: false).addItemToCart(shoe);
 
-    if (kDebugMode) {
-      print("added");
-    }
-
     // alert the user, shoe successfully added to cart
     showDialog(
         context: context,
-        builder: (context) => const AlertDialog(
-              title: Text("Successfully added"),
-            ));
+        builder: (context) {
+          Future.delayed(const Duration(milliseconds: 700), () {
+            Navigator.of(context).pop(true);
+          });
+
+          return AlertDialog(
+            title: const Text(
+              "Successfully added",
+              style: TextStyle(fontSize: 14),
+            ),
+            surfaceTintColor: Colors.transparent,
+            elevation: 0.0,
+            alignment: Alignment.topCenter,
+            shape:
+                RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+          );
+        });
   }
 
   @override
@@ -79,12 +89,15 @@ class _ShopPageState extends State<ShopPage> {
           ),
 
           Expanded(
-              child: ListView.builder(
-            scrollDirection: Axis.horizontal,
-            itemCount: value.getShoeList().length,
-            itemBuilder: (context, index) => ShoeTile(
-                shoe: value.getShoeList()[index],
-                onTap: () => addShoeToCart(value.getShoeList()[index])),
+              child: Container(
+            margin: const EdgeInsets.only(right: 25),
+            child: ListView.builder(
+              scrollDirection: Axis.horizontal,
+              itemCount: value.getShoeList().length,
+              itemBuilder: (context, index) => ShoeTile(
+                  shoe: value.getShoeList()[index],
+                  onTap: () => addShoeToCart(value.getShoeList()[index])),
+            ),
           ))
 
           // hot picks

@@ -49,7 +49,7 @@ class Cart extends ChangeNotifier {
   ];
 
   // list of items in user cart
-  List<Shoe> userCart = [];
+  Map<Shoe, int> userCart = {};
 
   // get lists of shoes for sale
   List<Shoe> getShoeList() {
@@ -57,13 +57,38 @@ class Cart extends ChangeNotifier {
   }
 
   // get cart
-  List<Shoe> getShopList() {
+  Map<Shoe, int> getShopList() {
     return userCart;
   }
 
   // add items to cart
   void addItemToCart(Shoe shoe) {
-    userCart.add(shoe);
+    int? currentCount = userCart[shoe];
+
+    if (currentCount != null) {
+      currentCount++;
+    } else {
+      currentCount = 1;
+    }
+
+    userCart[shoe] = currentCount;
+
+    notifyListeners();
+  }
+
+  void subtractItemAmmountFromCart(Shoe shoe) {
+    int? currentCount = userCart[shoe];
+
+    if (currentCount != null) {
+      if (currentCount > 1) {
+        currentCount--;
+      }
+    } else {
+      currentCount = 1;
+    }
+
+    userCart[shoe] = currentCount;
+
     notifyListeners();
   }
 
@@ -71,5 +96,20 @@ class Cart extends ChangeNotifier {
   void removeItemFromCart(Shoe shoe) {
     userCart.remove(shoe);
     notifyListeners();
+  }
+
+  double getTotalPrice() {
+    double total = 0;
+
+    for (Shoe key in userCart.keys) {
+      double? keyPrice = double.parse(key.price);
+      int? valueAmmount = userCart[key];
+
+      if (valueAmmount != null) {
+        total += keyPrice * valueAmmount;
+      }
+    }
+
+    return total;
   }
 }
