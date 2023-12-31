@@ -34,6 +34,11 @@ class _HomePageState extends State<HomePage> {
           BottomNavbar(onTabChange: (index) => navigateBottomBar(index)),
       body: _pages[_selectedIndex],
       appBar: AppBar(
+          centerTitle: true,
+          title: const Text(
+            "Shoes and stuff",
+            style: TextStyle(fontSize: 19, fontWeight: FontWeight.bold),
+          ),
           backgroundColor: Colors.transparent,
           elevation: 0,
           leading: Builder(

@@ -23,7 +23,6 @@ class _MainState extends State<MyApp> {
         debugShowCheckedModeBanner: false,
         home: const IntroPage(),
         theme: ThemeData.light(),
-        darkTheme: ThemeData.dark(),
       ),
     );
   }

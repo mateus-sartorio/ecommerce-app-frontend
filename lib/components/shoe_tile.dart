@@ -14,53 +14,77 @@ class ShoeTile extends StatelessWidget {
       margin: const EdgeInsets.only(left: 25),
       width: 280,
       decoration: BoxDecoration(
-          color: Colors.grey, borderRadius: BorderRadius.circular(12)),
+          color: Colors.grey[200], borderRadius: BorderRadius.circular(12)),
       child:
           Column(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
-        ClipRRect(
+        Container(
+          width: double.infinity,
+          margin: const EdgeInsets.symmetric(horizontal: 20),
+          decoration: const BoxDecoration(),
+          child: ClipRRect(
             borderRadius: BorderRadius.circular(12),
-            child: Image.asset(shoe.imagePath)),
-        Text(shoe.description),
+            child: Image.asset(shoe.imagePath),
+          ),
+        ),
+        Container(
+          margin: const EdgeInsets.symmetric(horizontal: 30),
+          child: Text(
+            shoe.description.length > 150
+                ? "${shoe.description.substring(0, 150)}..."
+                : shoe.description,
+            style: TextStyle(color: Colors.grey[600]),
+          ),
+        ),
         Padding(
           padding: const EdgeInsets.only(left: 10),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  // shoe name
-                  Text(
-                    shoe.name,
-                    style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        color: Theme.of(context).cardColor),
-                  ),
+              Padding(
+                padding: const EdgeInsets.only(bottom: 20, left: 20),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    // shoe name
+                    Text(
+                      shoe.name,
+                      style: const TextStyle(
+                          fontWeight: FontWeight.bold,
+                          color: Colors.black,
+                          fontSize: 18),
+                    ),
 
-                  const SizedBox(height: 10),
-
-                  // price
-                  Text(
-                    "\$${shoe.price}",
-                    style: TextStyle(color: Theme.of(context).cardColor),
-                  )
-                ],
+                    // price
+                    Text(
+                      "\$${shoe.price}",
+                      style: const TextStyle(color: Colors.grey),
+                    )
+                  ],
+                ),
               ),
 
               // plus button
-              GestureDetector(
-                onTap: () => onTap!(),
-                child: Container(
-                    padding: const EdgeInsets.all(10),
-                    decoration: BoxDecoration(
-                        color: Theme.of(context).primaryColor,
-                        borderRadius: const BorderRadius.only(
-                          topLeft: Radius.circular(10),
+              Column(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  const SizedBox(
+                    height: 20,
+                  ),
+                  GestureDetector(
+                    onTap: () => onTap!(),
+                    child: Container(
+                        padding: const EdgeInsets.all(10),
+                        decoration: const BoxDecoration(
+                            color: Colors.black,
+                            borderRadius: BorderRadius.only(
+                                topLeft: Radius.circular(10),
+                                bottomRight: Radius.circular(10))),
+                        child: const Icon(
+                          Icons.add,
+                          color: Colors.white,
                         )),
-                    child: const Icon(
-                      Icons.add,
-                    )),
+                  ),
+                ],
               )
             ],
           ),

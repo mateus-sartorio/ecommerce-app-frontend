@@ -1,3 +1,4 @@
+import 'package:ecommerce_app/components/big_button_tile.dart';
 import 'package:ecommerce_app/pages/home_page.dart';
 import 'package:flutter/material.dart';
 
@@ -30,21 +31,23 @@ class IntroPage extends StatelessWidget {
             const SizedBox(height: 24),
 
             // sub title
-            const Text(
-              "Brand new sneakers and custom kicks made with",
-              style: TextStyle(fontSize: 16),
+            Text(
+              "Brand new sneakers and custom kicks made with premium quality",
+              style: TextStyle(fontSize: 16, color: Colors.grey[600]),
               textAlign: TextAlign.center,
             ),
 
             const SizedBox(height: 48),
 
             //start now button
-            ElevatedButton(
-                onPressed: () => Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => const HomePage())),
-                child: const Text(
-                  "Show now",
-                  style: TextStyle(fontWeight: FontWeight.bold),
+            SizedBox(
+                width: double.infinity,
+                child: BigButtonTile(
+                  text: "Show now",
+                  onPressed: () => Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const HomePage())),
                 ))
           ]),
         ),
