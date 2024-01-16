@@ -70,7 +70,8 @@ class _CartPageState extends State<CartPage> {
                     ),
                   ),
 
-                  BigButtonTile(text: "Buy now", onPressed: () {})
+                  BigButtonTile(
+                      isSolid: true, text: "Buy now", onPressed: () {})
                 ],
               ),
             ));
