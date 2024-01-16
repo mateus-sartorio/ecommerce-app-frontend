@@ -1,5 +1,4 @@
 import 'package:ecommerce_app/components/big_button_tile.dart';
-import 'package:ecommerce_app/pages/home_page.dart';
 import 'package:ecommerce_app/pages/login_page.dart';
 import 'package:ecommerce_app/pages/register_page.dart';
 import 'package:flutter/material.dart';
