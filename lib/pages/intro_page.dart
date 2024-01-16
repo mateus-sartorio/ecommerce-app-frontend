@@ -1,5 +1,7 @@
 import 'package:ecommerce_app/components/big_button_tile.dart';
 import 'package:ecommerce_app/pages/home_page.dart';
+import 'package:ecommerce_app/pages/login_page.dart';
+import 'package:ecommerce_app/pages/register_page.dart';
 import 'package:flutter/material.dart';
 
 class IntroPage extends StatelessWidget {
@@ -43,12 +45,26 @@ class IntroPage extends StatelessWidget {
             SizedBox(
                 width: double.infinity,
                 child: BigButtonTile(
-                  text: "Show now",
+                  isSolid: true,
+                  text: "Login",
                   onPressed: () => Navigator.push(
                       context,
                       MaterialPageRoute(
-                          builder: (context) => const HomePage())),
-                ))
+                          builder: (context) => const LoginPage())),
+                )),
+
+            const SizedBox(height: 20),
+
+            SizedBox(
+                width: double.infinity,
+                child: BigButtonTile(
+                  isSolid: false,
+                  text: "Register",
+                  onPressed: () => Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const RegisterPage())),
+                )),
           ]),
         ),
       ),
