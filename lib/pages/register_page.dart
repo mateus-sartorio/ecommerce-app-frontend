@@ -15,15 +15,16 @@ class RegisterPage extends StatefulWidget {
 }
 
 class _RegisterPageState extends State<RegisterPage> {
+  final TextEditingController _usernameController = TextEditingController();
+  final TextEditingController _emailController = TextEditingController();
   final TextEditingController _firstnameController = TextEditingController();
   final TextEditingController _lastnameController = TextEditingController();
-  final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
   final TextEditingController _confirmPasswordController =
       TextEditingController();
 
   Future<void> register(BuildContext context) async {
-    const String backendRoute = "http://10.0.2.2:8080/api/v1/registration";
+    const String backendRoute = "http://10.0.2.2:8080/api/v1/auth/register";
     Uri uri = Uri.parse(backendRoute);
 
     final RegExp emailRegExp =
@@ -40,9 +41,10 @@ class _RegisterPageState extends State<RegisterPage> {
     }
 
     Map data = {
+      "username": _usernameController.text,
+      "email": _emailController.text,
       "firstName": _firstnameController.text,
       "lastName": _lastnameController.text,
-      "email": _emailController.text,
       "password": _passwordController.text
     };
 
@@ -81,12 +83,13 @@ class _RegisterPageState extends State<RegisterPage> {
                 style: TextStyle(fontWeight: FontWeight.bold, fontSize: 30),
               ),
               const Text("Create your account"),
+              InputField(controller: _usernameController, hintText: "Username"),
+              InputField(
+                  controller: _emailController, hintText: "Email address"),
               InputField(
                   controller: _firstnameController, hintText: "First name"),
               InputField(
                   controller: _lastnameController, hintText: "Last name"),
-              InputField(
-                  controller: _emailController, hintText: "Email address"),
               InputField(controller: _passwordController, hintText: "Password"),
               InputField(
                   controller: _confirmPasswordController,
