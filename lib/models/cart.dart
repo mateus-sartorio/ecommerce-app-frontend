@@ -9,7 +9,7 @@ class Cart extends ChangeNotifier {
         price: "25",
         imagePath: "assets/images/black-shoe.png",
         description:
-            "Elevate your style with our classic black shoe. Timelessly chic, comfortable, and versatile – the perfect choice for any occasion."),
+            "Elevate your style with our classic black shoe. Timelessly chic, comfortable, and versatile - the perfect choice for any occasion."),
     Shoe(
         name: "Blue Shoe",
         price: "25",

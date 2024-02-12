@@ -1,6 +1,7 @@
 import 'package:ecommerce_app/components/shoe_tile.dart';
 import 'package:ecommerce_app/models/cart.dart';
 import 'package:ecommerce_app/models/shoe.dart';
+import 'package:ecommerce_app/store/global_state.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -14,7 +15,7 @@ class ShopPage extends StatefulWidget {
 class _ShopPageState extends State<ShopPage> {
   // add shoe to cart
   void addShoeToCart(Shoe shoe) {
-    Provider.of<Cart>(context, listen: false).addItemToCart(shoe);
+    Provider.of<GlobalState>(context, listen: false).cart.addItemToCart(shoe);
 
     // alert the user, shoe successfully added to cart
     showDialog(
@@ -40,7 +41,7 @@ class _ShopPageState extends State<ShopPage> {
 
   @override
   Widget build(BuildContext context) {
-    return Consumer<Cart>(
+    return Consumer<GlobalState>(
       builder: (context, value, child) => Column(
         children: [
           // search bar
@@ -92,10 +93,10 @@ class _ShopPageState extends State<ShopPage> {
             margin: const EdgeInsets.only(right: 25),
             child: ListView.builder(
               scrollDirection: Axis.horizontal,
-              itemCount: value.getShoeList().length,
+              itemCount: value.cart.getShoeList().length,
               itemBuilder: (context, index) => ShoeTile(
-                  shoe: value.getShoeList()[index],
-                  onTap: () => addShoeToCart(value.getShoeList()[index])),
+                  shoe: value.cart.getShoeList()[index],
+                  onTap: () => addShoeToCart(value.cart.getShoeList()[index])),
             ),
           ))
 

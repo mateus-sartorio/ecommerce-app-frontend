@@ -1,7 +1,7 @@
 import 'package:ecommerce_app/components/big_button_tile.dart';
 import 'package:ecommerce_app/components/cart_item_tile.dart';
-import 'package:ecommerce_app/models/cart.dart';
 import 'package:ecommerce_app/models/shoe.dart';
+import 'package:ecommerce_app/store/global_state.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -15,7 +15,7 @@ class CartPage extends StatefulWidget {
 class _CartPageState extends State<CartPage> {
   @override
   Widget build(BuildContext context) {
-    return Consumer<Cart>(
+    return Consumer<GlobalState>(
         builder: (context, value, child) => Padding(
               padding: const EdgeInsets.only(left: 25, right: 25, bottom: 25),
               child: Column(
@@ -39,14 +39,14 @@ class _CartPageState extends State<CartPage> {
 
                   Expanded(
                       child: ListView.builder(
-                          itemCount: value.getShopList().length,
+                          itemCount: value.cart.getShopList().length,
                           itemBuilder: ((context, index) {
                             // get individual shoe
                             Shoe shoe =
-                                value.getShopList().keys.toList()[index];
+                                value.cart.getShopList().keys.toList()[index];
 
                             int ammount =
-                                value.getShopList().values.toList()[index];
+                                value.cart.getShopList().values.toList()[index];
 
                             return CartItemTile(shoe: shoe, ammount: ammount);
 
@@ -63,7 +63,7 @@ class _CartPageState extends State<CartPage> {
                           children: [
                             const TextSpan(text: "Total "),
                             TextSpan(
-                                text: "\$${value.getTotalPrice()}",
+                                text: "\$${value.cart.getTotalPrice()}",
                                 style: const TextStyle(
                                     fontWeight: FontWeight.bold))
                           ]),
