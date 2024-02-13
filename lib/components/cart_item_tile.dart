@@ -1,5 +1,5 @@
-import 'package:ecommerce_app/models/cart.dart';
 import 'package:ecommerce_app/models/shoe.dart';
+import 'package:ecommerce_app/store/global_state.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -15,17 +15,22 @@ class CartItemTile extends StatefulWidget {
 
 class _CartItemTileState extends State<CartItemTile> {
   void removeItemFromCart() {
-    Provider.of<Cart>(context, listen: false).removeItemFromCart(widget.shoe);
+    print("nice");
+    Provider.of<GlobalState>(context, listen: false)
+        .removeItemFromCart(widget.shoe);
   }
 
   void addItemAmmount() {
+    print("nice+");
     setState(() {
-      Provider.of<Cart>(context, listen: false).addItemToCart(widget.shoe);
+      Provider.of<GlobalState>(context, listen: false)
+          .addItemToCart(widget.shoe);
     });
   }
 
   void subtractItemAmmount() {
-    Provider.of<Cart>(context, listen: false)
+    print("nice-");
+    Provider.of<GlobalState>(context, listen: false)
         .subtractItemAmmountFromCart(widget.shoe);
   }
 

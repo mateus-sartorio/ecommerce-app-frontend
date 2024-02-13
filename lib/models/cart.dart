@@ -61,43 +61,6 @@ class Cart extends ChangeNotifier {
     return userCart;
   }
 
-  // add items to cart
-  void addItemToCart(Shoe shoe) {
-    int? currentCount = userCart[shoe];
-
-    if (currentCount != null) {
-      currentCount++;
-    } else {
-      currentCount = 1;
-    }
-
-    userCart[shoe] = currentCount;
-
-    notifyListeners();
-  }
-
-  void subtractItemAmmountFromCart(Shoe shoe) {
-    int? currentCount = userCart[shoe];
-
-    if (currentCount != null) {
-      if (currentCount > 1) {
-        currentCount--;
-      }
-    } else {
-      currentCount = 1;
-    }
-
-    userCart[shoe] = currentCount;
-
-    notifyListeners();
-  }
-
-  // remove items from cart
-  void removeItemFromCart(Shoe shoe) {
-    userCart.remove(shoe);
-    notifyListeners();
-  }
-
   double getTotalPrice() {
     double total = 0;
 
