@@ -5,12 +5,19 @@ import 'package:flutter/material.dart';
 
 class GlobalState extends ChangeNotifier {
   User user;
-  final Cart cart;
+  Cart cart;
 
   GlobalState({required this.user, required this.cart});
 
   void setUser(User user) {
     this.user = user;
+    notifyListeners();
+  }
+
+  void logoutUser() {
+    user = User(
+        username: "", email: "", firstName: "", lastName: "", jwtToken: "");
+    notifyListeners();
   }
 
   // add items to cart
