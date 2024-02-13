@@ -1,5 +1,4 @@
 import 'package:ecommerce_app/components/shoe_tile.dart';
-import 'package:ecommerce_app/models/cart.dart';
 import 'package:ecommerce_app/models/shoe.dart';
 import 'package:ecommerce_app/store/global_state.dart';
 import 'package:flutter/material.dart';
@@ -15,7 +14,7 @@ class ShopPage extends StatefulWidget {
 class _ShopPageState extends State<ShopPage> {
   // add shoe to cart
   void addShoeToCart(Shoe shoe) {
-    Provider.of<GlobalState>(context, listen: false).cart.addItemToCart(shoe);
+    Provider.of<GlobalState>(context, listen: false).addItemToCart(shoe);
 
     // alert the user, shoe successfully added to cart
     showDialog(
