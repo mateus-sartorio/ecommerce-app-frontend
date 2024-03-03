@@ -1,5 +1,4 @@
 import 'package:ecommerce_app/components/shoe_tile.dart';
-import 'package:ecommerce_app/models/shoe.dart';
 import 'package:ecommerce_app/store/global_state.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -13,30 +12,30 @@ class ShopPage extends StatefulWidget {
 
 class _ShopPageState extends State<ShopPage> {
   // add shoe to cart
-  void addShoeToCart(Shoe shoe) {
-    Provider.of<GlobalState>(context, listen: false).addItemToCart(shoe);
+  // void addProduct(Shoe shoe) {
+  //   Provider.of<GlobalState>(context, listen: false).addItemToCart(shoe);
 
-    // alert the user, shoe successfully added to cart
-    showDialog(
-        context: context,
-        builder: (context) {
-          Future.delayed(const Duration(milliseconds: 700), () {
-            Navigator.of(context).pop(true);
-          });
+  //   // alert the user, shoe successfully added to cart
+  //   showDialog(
+  //       context: context,
+  //       builder: (context) {
+  //         Future.delayed(const Duration(milliseconds: 700), () {
+  //           Navigator.of(context).pop(true);
+  //         });
 
-          return AlertDialog(
-            title: const Text(
-              "Successfully added",
-              style: TextStyle(fontSize: 14),
-            ),
-            surfaceTintColor: Colors.transparent,
-            elevation: 0.0,
-            alignment: Alignment.topCenter,
-            shape:
-                RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
-          );
-        });
-  }
+  //         return AlertDialog(
+  //           title: const Text(
+  //             "Successfully added",
+  //             style: TextStyle(fontSize: 14),
+  //           ),
+  //           surfaceTintColor: Colors.transparent,
+  //           elevation: 0.0,
+  //           alignment: Alignment.topCenter,
+  //           shape:
+  //               RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+  //         );
+  //       });
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -89,15 +88,16 @@ class _ShopPageState extends State<ShopPage> {
 
           Expanded(
               child: Container(
-            margin: const EdgeInsets.only(right: 25),
-            child: ListView.builder(
-              scrollDirection: Axis.horizontal,
-              itemCount: value.cart.getShoeList().length,
-              itemBuilder: (context, index) => ShoeTile(
-                  shoe: value.cart.getShoeList()[index],
-                  onTap: () => addShoeToCart(value.cart.getShoeList()[index])),
-            ),
-          ))
+                  margin: const EdgeInsets.only(right: 25),
+                  child: ListView.builder(
+                    scrollDirection: Axis.horizontal,
+                    itemCount: value.products.length,
+                    itemBuilder: (context, index) => ShoeTile(
+                      product: value.products[index],
+                      // onTap: () => addProduct(value.cart.getShoeList()[index])),
+                      onTap: () {},
+                    ),
+                  )))
 
           // hot picks
         ],

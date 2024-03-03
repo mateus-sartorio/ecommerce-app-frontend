@@ -1,12 +1,10 @@
-import 'package:ecommerce_app/models/shoe.dart';
-import 'package:ecommerce_app/store/global_state.dart';
+import 'package:ecommerce_app/models/product.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 
 class CartItemTile extends StatefulWidget {
-  final Shoe shoe;
+  final Product product;
   final int ammount;
-  const CartItemTile({Key? key, required this.shoe, required this.ammount})
+  const CartItemTile({Key? key, required this.product, required this.ammount})
       : super(key: key);
 
   @override
@@ -14,32 +12,32 @@ class CartItemTile extends StatefulWidget {
 }
 
 class _CartItemTileState extends State<CartItemTile> {
-  void removeItemFromCart() {
-    print("nice");
-    Provider.of<GlobalState>(context, listen: false)
-        .removeItemFromCart(widget.shoe);
-  }
+  // void removeItemFromCart() {
+  //   print("nice");
+  //   Provider.of<GlobalState>(context, listen: false)
+  //       .removeItemFromCart(widget.product);
+  // }
 
-  void addItemAmmount() {
-    print("nice+");
-    setState(() {
-      Provider.of<GlobalState>(context, listen: false)
-          .addItemToCart(widget.shoe);
-    });
-  }
+  // void addItemAmmount() {
+  //   print("nice+");
+  //   setState(() {
+  //     Provider.of<GlobalState>(context, listen: false)
+  //         .addItemToCart(widget.product);
+  //   });
+  // }
 
-  void subtractItemAmmount() {
-    print("nice-");
-    Provider.of<GlobalState>(context, listen: false)
-        .subtractItemAmmountFromCart(widget.shoe);
-  }
+  // void subtractItemAmmount() {
+  //   print("nice-");
+  //   Provider.of<GlobalState>(context, listen: false)
+  //       .subtractItemAmmountFromCart(widget.product);
+  // }
 
   @override
   Widget build(BuildContext context) {
     return ListTile(
-      leading: Image.asset(widget.shoe.imagePath),
+      leading: Image.asset(widget.product.cover.url),
       title: Text(
-        widget.shoe.name,
+        widget.product.title,
         style: const TextStyle(fontWeight: FontWeight.bold),
       ),
       subtitle: Row(
@@ -51,7 +49,7 @@ class _CartItemTileState extends State<CartItemTile> {
               height: 30,
               child: IconButton(
                   padding: const EdgeInsets.all(0),
-                  onPressed: subtractItemAmmount,
+                  onPressed: () {},
                   icon: const Icon(
                     Icons.remove,
                     size: 20,
@@ -66,7 +64,7 @@ class _CartItemTileState extends State<CartItemTile> {
               height: 30,
               child: IconButton(
                   padding: const EdgeInsets.all(0),
-                  onPressed: addItemAmmount,
+                  onPressed: () {},
                   icon: const Icon(Icons.add)))
         ],
       ),
@@ -81,13 +79,13 @@ class _CartItemTileState extends State<CartItemTile> {
               iconSize: 19,
               padding: const EdgeInsets.all(0),
               icon: const Icon(Icons.delete),
-              onPressed: () => removeItemFromCart(),
+              onPressed: () {},
             ),
           ),
-          Text(
-            "\$${widget.ammount * int.parse(widget.shoe.price)}",
-            style: const TextStyle(fontSize: 14),
-          ),
+          // Text(
+          //   "\$${widget.ammount * int.parse(widget.product.price)}",
+          //   style: const TextStyle(fontSize: 14),
+          // ),
         ],
       ),
     );

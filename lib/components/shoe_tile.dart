@@ -1,11 +1,11 @@
-import 'package:ecommerce_app/models/shoe.dart';
+import 'package:ecommerce_app/models/product.dart';
 import 'package:flutter/material.dart';
 
 class ShoeTile extends StatelessWidget {
-  final Shoe shoe;
+  final Product product;
   final void Function()? onTap;
 
-  const ShoeTile({Key? key, required this.shoe, required this.onTap})
+  const ShoeTile({Key? key, required this.product, required this.onTap})
       : super(key: key);
 
   @override
@@ -23,15 +23,15 @@ class ShoeTile extends StatelessWidget {
           decoration: const BoxDecoration(),
           child: ClipRRect(
             borderRadius: BorderRadius.circular(12),
-            child: Image.asset(shoe.imagePath),
+            child: Image.asset(product.cover.url),
           ),
         ),
         Container(
           margin: const EdgeInsets.symmetric(horizontal: 30),
           child: Text(
-            shoe.description.length > 150
-                ? "${shoe.description.substring(0, 150)}..."
-                : shoe.description,
+            product.description.length > 150
+                ? "${product.description.substring(0, 150)}..."
+                : product.description,
             style: TextStyle(color: Colors.grey[600]),
           ),
         ),
@@ -45,9 +45,9 @@ class ShoeTile extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    // shoe name
+                    // product name
                     Text(
-                      shoe.name,
+                      product.title,
                       style: const TextStyle(
                           fontWeight: FontWeight.bold,
                           color: Colors.black,
@@ -56,7 +56,7 @@ class ShoeTile extends StatelessWidget {
 
                     // price
                     Text(
-                      "\$${shoe.price}",
+                      "\$${product.price}",
                       style: const TextStyle(color: Colors.grey),
                     )
                   ],

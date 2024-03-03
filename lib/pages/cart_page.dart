@@ -1,6 +1,6 @@
 import 'package:ecommerce_app/components/big_button_tile.dart';
 import 'package:ecommerce_app/components/cart_item_tile.dart';
-import 'package:ecommerce_app/models/shoe.dart';
+import 'package:ecommerce_app/models/product.dart';
 import 'package:ecommerce_app/store/global_state.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -39,16 +39,15 @@ class _CartPageState extends State<CartPage> {
 
                   Expanded(
                       child: ListView.builder(
-                          itemCount: value.cart.getShopList().length,
+                          itemCount: value.products.length,
                           itemBuilder: ((context, index) {
                             // get individual shoe
-                            Shoe shoe =
-                                value.cart.getShopList().keys.toList()[index];
+                            Product product = value.products[index];
 
-                            int ammount =
-                                value.cart.getShopList().values.toList()[index];
+                            int ammount = 10;
 
-                            return CartItemTile(shoe: shoe, ammount: ammount);
+                            return CartItemTile(
+                                product: product, ammount: ammount);
 
                             // return the cart icon
                           }))),
@@ -57,15 +56,13 @@ class _CartPageState extends State<CartPage> {
                   Container(
                     margin: const EdgeInsets.only(bottom: 15),
                     child: RichText(
-                      text: TextSpan(
-                          style: const TextStyle(
-                              fontSize: 18, color: Colors.black),
+                      text: const TextSpan(
+                          style: TextStyle(fontSize: 18, color: Colors.black),
                           children: [
-                            const TextSpan(text: "Total "),
+                            TextSpan(text: "Total "),
                             TextSpan(
-                                text: "\$${value.cart.getTotalPrice()}",
-                                style: const TextStyle(
-                                    fontWeight: FontWeight.bold))
+                                text: "\$${0}",
+                                style: TextStyle(fontWeight: FontWeight.bold))
                           ]),
                     ),
                   ),
